@@ -44,10 +44,15 @@ Why Bother?
 - The tools kick ass
 - Objective-C and Python are friends
 
-.. -*- XXX: Show Cocoa Apps -*-
-.. -*- SubEthaEdit -*-
-.. -*- Delicious Library -*-
-.. -*- NetNewsWire -*-
+SubEthaEdit is Cocoa...
+-----------------------
+
+.. image:: ../img/Apps/SubEthaEdit.png
+
+So is NetNewsWire...
+--------------------
+
+.. image:: ../img/Apps/NetNewsWire.png
 
 Interface Builder
 -----------------
@@ -58,8 +63,6 @@ Interface Builder
 - Plug objects together
 - Manages an *object graph*
 - ... think pickle
-
-.. -*- XXX: Demonstrate web browser building -*-
 
 Objective-C
 -----------
@@ -77,9 +80,40 @@ Classes
 - Classes are objects
 - Instance Variables
 
-.. -*- XXX: Image of @interface -*-
-.. -*- XXX: Image of @implementation -*-
+Objective-C Interface
+---------------------
 
+::
+
+    @interface MyClass : NSObject
+    {
+        int myInt;
+    }
+    +(id)myClassWithInt:(int)anInt;
+    -(int)myInt;
+    @end
+
+Objective-C Implementation
+--------------------------
+
+::
+
+    @implementation MyClass
+
+    +(id)myClassWithInt:(int)anInt;
+    {
+        self = [[self alloc] init];
+        intInstanceVariable = anInt;
+        return self;
+    }
+
+    -(int)myInt
+    {
+        return myInt;
+    }
+
+    @end
+    
 Objects
 -------
 
@@ -223,8 +257,8 @@ To the NSApplication
 
 .. image:: ../img/Converter/InterfaceBuilderScreenSnapz015.png
 
-ConverterAppDelegate Class
---------------------------
+ConverterAppDelegate.py Class
+-----------------------------
 
 ::
 
@@ -245,13 +279,15 @@ ConverterAppDelegate Class
         def setAmountInOtherCurrency_(self, amt):
             self.dollarsToConvert = amt / self.exchangeRate
 
-    ConverterAppDelegate.setKeys_triggerChangeNotificationsForDependentKey_(
+    # shamelessly preventing line wrapping
+    cls = ConverterAppDelegate
+    cls.setKeys_triggerChangeNotificationsForDependentKey_(
         [u'dollarsToConvert', u'exchangeRate'],
         u'amountInOtherCurrency',
     )
 
-Converter script
-----------------
+Converter.py script
+-------------------
 
 ::
 
@@ -260,8 +296,8 @@ Converter script
     if __name__ == '__main__':
         AppHelper.runEventLoop()
 
-setup.py script
----------------
+Converter setup.py script
+-------------------------
 
 ::
 
@@ -275,43 +311,153 @@ setup.py script
 Build and Run
 -------------
 
-::
+Build::
 
     % python setup.py py2app --alias
+
+Run::
+
     % open dist/Converter.app
 
-Finished Converter
-------------------
+Done:
+
 
 .. image:: ../img/Converter/ConverterScreenSnapz001.png
 
-Changing Currency
------------------
-
-.. image:: ../img/Converter/ConverterScreenSnapz002.png
-
-Password Viewer
+New NSTableView
 ---------------
 
-.. -*- XXX: Password Viewer Tutorial -*-
+.. image:: ../img/Viewer/InterfaceBuilderScreenSnapz001.png
+
+Name the columns
+----------------
+
+.. image:: ../img/Viewer/InterfaceBuilderScreenSnapz002.png
+
+Change the resize behavior
+--------------------------
+
+.. image:: ../img/Viewer/InterfaceBuilderScreenSnapz003.png
+
+To expand with the NSWindow
+---------------------------
+
+.. image:: ../img/Viewer/InterfaceBuilderScreenSnapz004.png
+
+Create an NSArrayController
+---------------------------
+
+.. image:: ../img/Viewer/InterfaceBuilderScreenSnapz005.png
+
+Bind the user column
+--------------------
+
+.. image:: ../img/Viewer/InterfaceBuilderScreenSnapz007.png
+
+Bind the uid column
+-------------------
+
+.. image:: ../img/Viewer/InterfaceBuilderScreenSnapz008.png
+
+Bind the NSArrayController
+--------------------------
+
+.. image:: ../img/Viewer/InterfaceBuilderScreenSnapz009.png
+
+Create the ViewerAppDelegate
+----------------------------
+
+.. image:: ../img/Viewer/InterfaceBuilderScreenSnapz006.png
+
+Like the previous application:
+
+- Subclass NSObject
+- Instantiate the subclass
+- Connect it to the NSApplication's delegate outlet
+
+Viewer.py
+---------
+
+::
+
+    from PyObjCTools import AppHelper
+    from Foundation import *
+    from AppKit import *
+    import os
+
+    # another shameless anti-line-wrapping hack
+    FIELDS = """
+    user password uid gid class change
+    expire gecos home_dir shell
+    """.split()
+
+    class ViewerAppDelegate(NSObject):
+        def init(self):
+            self = super(ViewerAppDelegate, self).init()
+            self.passwords = [
+                dict(zip(FIELDS, line.rstrip().split(':')))
+                for line in os.popen('/usr/bin/nidump passwd .')
+                if line and not line.startswith('#')
+            ]
+            return self
+
+    if __name__ == '__main__':
+        AppHelper.runEventLoop()
+            
+Build and Run Viewer
+--------------------
+
+Build (redistributable!)::
+
+    % py2applet Viewer.py MainMenu.nib
+
+Run::
+
+    % open Viewer.app
+
+Done:
+
+.. image:: ../img/Viewer/ViewerScreenSnapz001.png
+
+Bindings give you sorting for free!
+-----------------------------------
+
+.. image:: ../img/Viewer/ViewerScreenSnapz002.png
 
 Help!
 -----
 
-- Documentation
-- Examples
-- Mailing List
-- Wiki
-- IRC
+Documentation:
+    /Developer/Python/PyObjC/Documentation
 
-Applications Using PyObjC
--------------------------
+Examples:
+    /Developer/Python/PyObjC/Examples
+    
+Wiki:
+    http://pythonmac.org/wiki
 
-- ReSTedit
-- Flame
-- DrawBot
-- BitTorrent
-- ...
+IRC:
+    #pythonmac (on freenode)
+
+Mailing List:
+
+- pythonmac-sig@python.org
+- pyobjc-dev@lists.sourceforge.net
+
+ReSTedit
+--------
+
+.. image:: ../img/Apps/ReSTedit.png
+
+Flame
+-----
+
+.. image:: ../img/Apps/Flame.png
+
+NodeBox
+-------
+
+.. image:: ../img/Apps/NodeBox.png
 
 Questions?
 ----------
