@@ -1,0 +1,89 @@
+==============================================
+PyCon DC 2005 Proposal: Introduction to PyObjC
+==============================================
+
+:Author:
+  Bob Ippolito
+:Email:
+  bob@redivi.com
+:Time slot:
+  30 minutes
+
+
+Abstract
+--------
+
+Introduction to PyObjC is a quick tour of PyObjC suitable for anyone with
+Python experience looking to get their feet wet with Cocoa development
+with their programming language of choice.  Prior Objective-C knowledge
+or Interface Builder experience is not necessary.
+
+
+Prerequisites
+-------------
+
+* Mac OS X 10.2 or later
+* Python 2.3.0 or later (Ships with OS X 10.3 or later)
+* PyObjC 1.2 or later
+
+
+Background
+----------
+
+Description from http://pyobjc.sf.net/
+
+The PyObjC project aims to provide a bridge between the Python and Objective-C
+programming languages. The bridge is intended to be fully bidirectional,
+allowing the Python programmer to take full advantage of the power provided by
+various Objective-C based toolkits and the Objective-C programmer transparent
+access to Python based functionality.
+
+
+Objective-C for PyObjC Users
+----------------------------
+
+A brief overview of Objective-C syntax and Foundation semantics and how they
+relate to Python.
+
+
+Overview of the Bridge
+----------------------
+
+An overview of what classes, messages/functions, reference counting,
+protocols, Key-Value Coding, and Key-Value Observing are and how they work
+through the bridge.
+
+
+Creating Your First PyObjC Application
+--------------------------------------
+
+A walkthrough of the Currency Converter tutorial, which demonstrates
+usage of Interface Builder, and the application development cycle
+using py2app.
+
+
+Password Viewer Tutorial
+------------------------
+
+A walkthrough of the Password Viewer tutorial, which demonstrates
+usage of the Xcode template, Interface Builder, and Cocoa bindings.
+Additionally, I will show how to build a py2app setup script for
+this project so that it may be redistributed.
+
+
+Help!
+-----
+
+Overview of the documentation in PyObjC and point out examples that
+show off interesting Cocoa concepts.  Discuss how to read Apple's
+documentation, and where to find help on the internet (mailing list,
+wiki, IRC, etc.). 
+
+
+Applications Using PyObjC
+-------------------------
+
+If time allows, I will show off some of the many cool applications
+developed in PyObjC, many of which are open source.  Some examples
+include ReSTedit and DrawBot.  For most of these applications, I
+can answer questions about how they are implemented.

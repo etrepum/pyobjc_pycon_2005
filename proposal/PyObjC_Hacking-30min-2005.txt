@@ -1,0 +1,91 @@
+======================================
+PyCon DC 2005 Proposal: PyObjC Hacking
+======================================
+
+:Author:
+  Bob Ippolito
+:Email:
+  bob@redivi.com
+:Time slot:
+  30 minutes
+
+
+Abstract
+--------
+
+PyObjC Hacking is a quick tour of advanced uses for PyObjC and related
+tools.  This talk is geared toward those who have a working knowledge
+of PyObjC (or at least attended Introduction to PyObjC) and ideally
+understand data structures at the C level.
+
+
+Prerequisites
+-------------
+
+* Mac OS X 10.3 or later
+* Python 2.3.0 or later
+* PyObjC 1.2 or later
+
+
+Background
+----------
+
+Description from http://pyobjc.sf.net/
+
+The PyObjC project aims to provide a bridge between the Python and Objective-C
+programming languages. The bridge is intended to be fully bidirectional,
+allowing the Python programmer to take full advantage of the power provided by
+various Objective-C based toolkits and the Objective-C programmer transparent
+access to Python based functionality.
+
+
+Writing Plug-Ins
+----------------
+
+An overview of how plug-ins on Mac OS X work, how they are implemented in the
+context of py2app, and a demonstration of writing a PyObjC based plug-in.
+The demonstration plug-in will be an in-process Python interpreter and
+Objective-C class browser (these are examples that ship with PyObjC).
+
+
+Categories
+----------
+
+Using the in-process Python interpreter plug-in, I will demonstrate how to
+write a Category in PyObjC and show that it can add and change functionality
+in an existing Objective-C class.
+
+
+Wrapping Frameworks
+-------------------
+
+To demonstrate PyObjC's ability to load and work with existing Objective-C
+frameworks, I will demonstrate usage of the Renaissance GUI toolkit from
+PyObjC.  Note that unlike AppKit, Foundation, etc. Renaissance is a third
+party framework that PyObjC has no built-in knowledge of or explicit support
+for. 
+
+
+PyObjC as ctypes
+----------------
+
+Demonstrate how PyObjC's function wrapping capabilities are similar to those
+in ctypes, but are in some cases more powerful due to its built-in knowledge
+of types.  Show how it can be used to wrap and call into CoreFoundation and
+Carbon functionality.
+
+
+Process Hacking
+---------------
+
+Demonstrate how pyject can be used to inject a plug-in into an arbitrary
+application given the pid and appropriate permissions.  pyject is a
+Python wrapper around the mach_inject library.  Use pyject to put Python
+into an application that does not support plug-ins at all.
+
+
+PyObjC Implementation
+---------------------
+
+As time allows, discuss the guts of PyObjC (libffi, metaclasses, class-pairs,
+etc.) and take questions.
