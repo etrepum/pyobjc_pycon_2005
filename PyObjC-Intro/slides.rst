@@ -19,9 +19,9 @@ Topics
 
 - Installing PyObjC
 - Why Bother?
-- Interface Builder
 - Objective-C Primer
 - Crossing the Bridge
+- Interface Builder
 - Your First Application
 - Help!
 - Who's Using This Stuff?
@@ -44,25 +44,15 @@ Why Bother?
 - The tools kick ass
 - Objective-C and Python are friends
 
-SubEthaEdit is Cocoa...
------------------------
-
-.. image:: ../img/Apps/SubEthaEdit.png
-
-So is NetNewsWire...
---------------------
-
-.. image:: ../img/Apps/NetNewsWire.png
-
-Interface Builder
------------------
-
-- Design your interface
-- ... using a well designed interface
-- Don't write so much code
-- Plug objects together
-- Manages an *object graph*
-- ... think pickle
+.. SubEthaEdit is Cocoa...
+.. -----------------------
+.. 
+.. .. image:: ../img/Apps/SubEthaEdit.png
+.. 
+.. So is NetNewsWire...
+.. --------------------
+.. 
+.. .. image:: ../img/Apps/NetNewsWire.png
 
 Objective-C
 -----------
@@ -128,9 +118,9 @@ Messages
 --------
 
 - Target
+- ... can be nil
 - Selector
 - Arguments
-- nil receives anything
 
 Exceptions
 ----------
@@ -142,33 +132,63 @@ Exceptions
 Crossing the Bridge
 -------------------
 
-- All NSString are *UNICODE*
-- str is not safely bridged to anything!
-- int, long, float work magically
-- ... for value and object types
+- unicode, int, long, float work magically
+- ... str is not safely bridged!
 - None is just like nil
 - ... except you can't send messages to it!
 
-Bridged Messaging
------------------
+Objective-C Messages
+--------------------
 
-Objective-C:
+Objective-C Message:
     ``[aMutableArray addObject:@"someObject"]``
 
-- Separate the selector:from the:arguments
-- Smash_the_colons\_
-- Ditch.the_brackets_(and, add, arguments)
+Target:
+    ``aMutableArray``
 
-Python:
+Selector:
+    ``addObject:``
+
+Arguments:
+    ``@"someObject"``
+
+
+PyObjC Messages
+---------------
+
+Python Message:
     ``aMutableArray.addObject_(u'someObject')``
+
+Target:
+    ``aMutableArray``
+
+Selector:
+    ``addObject:`` (with colons replaced by underscores!)
+
+Arguments:
+    ``u'someObject'`` (unicode is equivalent to ``@"string"``)
+
 
 Key-Value Coding
 ----------------
 
 - Kinda like ``getattr`` protocol
-- Accessor
-- ivar
-- valueForUndefinedKey: (like ``__getattr__``)
+- ... but it calls accessors for you (like property)
+- ... or it will fetch an ivar and convert to an object
+- ``valueForUndefinedKey:`` (like ``__getattr__``)
+- ``valueForKeyPath:`` looks like a Python expression
+- ... except it will also "map" over arrays
+- ... and can do cool things like sum
+
+Interface Builder
+-----------------
+
+- Design your interface
+- ... using a well designed interface
+- Don't write so much code
+- Plug objects together
+- Manages an *object graph*
+- ... think pickle
 
 Making Money
 ------------
@@ -324,6 +344,13 @@ Done:
 
 .. image:: ../img/Converter/ConverterScreenSnapz001.png
 
+Hack the Gibson
+---------------
+
+- Views password file
+- ... using ``nidump`` utility
+- In a table view
+
 New NSTableView
 ---------------
 
@@ -349,6 +376,22 @@ Create an NSArrayController
 
 .. image:: ../img/Viewer/InterfaceBuilderScreenSnapz005.png
 
+Create the ViewerAppDelegate
+----------------------------
+
+.. image:: ../img/Viewer/InterfaceBuilderScreenSnapz006.png
+
+Bind the NSArrayController
+--------------------------
+
+.. image:: ../img/Viewer/InterfaceBuilderScreenSnapz009.png
+
+Like the previous application:
+
+- Subclass NSObject
+- Instantiate the subclass
+- Connect it to the NSApplication's delegate outlet
+
 Bind the user column
 --------------------
 
@@ -358,22 +401,6 @@ Bind the uid column
 -------------------
 
 .. image:: ../img/Viewer/InterfaceBuilderScreenSnapz008.png
-
-Bind the NSArrayController
---------------------------
-
-.. image:: ../img/Viewer/InterfaceBuilderScreenSnapz009.png
-
-Create the ViewerAppDelegate
-----------------------------
-
-.. image:: ../img/Viewer/InterfaceBuilderScreenSnapz006.png
-
-Like the previous application:
-
-- Subclass NSObject
-- Instantiate the subclass
-- Connect it to the NSApplication's delegate outlet
 
 Viewer.py
 ---------
@@ -437,12 +464,27 @@ Wiki:
     http://pythonmac.org/wiki
 
 IRC:
-    #pythonmac (on freenode)
+    #macpython (on freenode)
+
+Mailing Lists:
+
+- pyobjc-dev@lists.sourceforge.net
+- pythonmac-sig@python.org
+
+Help! (Objective-C)
+-------------------
+
+Documentation:
+    http://developer.apple.com/
+
+Examples:
+    /Developer/Examples/AppKit
+    
+Wiki:
+    http://cocoadev.com/
 
 Mailing List:
-
-- pythonmac-sig@python.org
-- pyobjc-dev@lists.sourceforge.net
+    cocoa-dev@lists.apple.com
 
 ReSTedit
 --------
