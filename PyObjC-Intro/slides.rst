@@ -146,82 +146,82 @@ Making Money
 New Application in IB
 ---------------------
 
-.. image:: img/Converter/InterfaceBuilderScreenSnapz001.png
+.. image:: ../img/Converter/InterfaceBuilderScreenSnapz001.png
 
 Create an NSTextField
 ---------------------
 
-.. image:: img/Converter/InterfaceBuilderScreenSnapz002.png
+.. image:: ../img/Converter/InterfaceBuilderScreenSnapz002.png
 
 Drag to the NSWindow
 --------------------
 
-.. image:: img/Converter/InterfaceBuilderScreenSnapz003.png
+.. image:: ../img/Converter/InterfaceBuilderScreenSnapz003.png
 
 Create the input NSTextFields
 -----------------------------
 
-.. image:: img/Converter/InterfaceBuilderScreenSnapz004.png
+.. image:: ../img/Converter/InterfaceBuilderScreenSnapz004.png
 
 Almost finished UI Layout
 -------------------------
 
-.. image:: img/Converter/InterfaceBuilderScreenSnapz005.png
+.. image:: ../img/Converter/InterfaceBuilderScreenSnapz005.png
 
 Align the labels
 ----------------
 
-.. image:: img/Converter/InterfaceBuilderScreenSnapz006.png
+.. image:: ../img/Converter/InterfaceBuilderScreenSnapz006.png
 
 Use currency NSNumberFormatters
 -------------------------------
 
-.. image:: img/Converter/InterfaceBuilderScreenSnapz016.png
+.. image:: ../img/Converter/InterfaceBuilderScreenSnapz016.png
 
 Set up the Bindings
 -------------------
 
-.. image:: img/Converter/InterfaceBuilderScreenSnapz007.png
+.. image:: ../img/Converter/InterfaceBuilderScreenSnapz007.png
 
 To point to your delegate
 -------------------------
 
-.. image:: img/Converter/InterfaceBuilderScreenSnapz008.png
+.. image:: ../img/Converter/InterfaceBuilderScreenSnapz008.png
 
 Dollars binding...
 ------------------
 
-.. image:: img/Converter/InterfaceBuilderScreenSnapz009.png
+.. image:: ../img/Converter/InterfaceBuilderScreenSnapz009.png
 
 Other Currency Binding...
 -------------------------
 
-.. image:: img/Converter/InterfaceBuilderScreenSnapz010.png
+.. image:: ../img/Converter/InterfaceBuilderScreenSnapz010.png
 
 Subclass NSObject
 -----------------
 
-.. image:: img/Converter/InterfaceBuilderScreenSnapz011.png
+.. image:: ../img/Converter/InterfaceBuilderScreenSnapz011.png
 
 To create your delegate class
 -----------------------------
 
-.. image:: img/Converter/InterfaceBuilderScreenSnapz012.png
+.. image:: ../img/Converter/InterfaceBuilderScreenSnapz012.png
 
 Instantiate it in your nib
 --------------------------
 
-.. image:: img/Converter/InterfaceBuilderScreenSnapz013.png
+.. image:: ../img/Converter/InterfaceBuilderScreenSnapz013.png
 
 Create a connection
 -------------------
 
-.. image:: img/Converter/InterfaceBuilderScreenSnapz014.png
+.. image:: ../img/Converter/InterfaceBuilderScreenSnapz014.png
 
 To the NSApplication
 --------------------
 
-.. image:: img/Converter/InterfaceBuilderScreenSnapz015.png
+.. image:: ../img/Converter/InterfaceBuilderScreenSnapz015.png
 
 ConverterAppDelegate Class
 --------------------------
@@ -283,12 +283,12 @@ Build and Run
 Finished Converter
 ------------------
 
-.. image:: img/Converter/ConverterScreenSnapz001.png
+.. image:: ../img/Converter/ConverterScreenSnapz001.png
 
 Changing Currency
 -----------------
 
-.. image:: img/Converter/ConverterScreenSnapz002.png
+.. image:: ../img/Converter/ConverterScreenSnapz002.png
 
 Password Viewer
 ---------------
