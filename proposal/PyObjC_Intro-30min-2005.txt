@@ -15,7 +15,7 @@ Abstract
 
 Introduction to PyObjC is a quick tour of PyObjC suitable for anyone with
 Python experience looking to get their feet wet with Cocoa development
-with their programming language of choice.  Prior Objective-C knowledge
+using their programming language of choice.  Prior Objective-C knowledge
 or Interface Builder experience is not necessary.
 
 
