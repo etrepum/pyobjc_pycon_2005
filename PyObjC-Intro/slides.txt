@@ -122,7 +122,7 @@ Objective-C:
     ``[aMutableArray addObject:@"someObject"]``
 
 - Separate the selector:from the:arguments
-- Smash_the_colons_
+- Smash_the_colons\_
 - Ditch.the_brackets_(and, add, arguments)
 
 Python:
@@ -139,8 +139,156 @@ Key-Value Coding
 Making Money
 ------------
 
-.. -*- XXX: Currency Converter Tutorial -*-
-.. -*- XXX: xmlrpclib ? -*-
+- Currency Converter
+- Using Cocoa Bindings
+- Almost entirely in Interface Builder
+
+New Application in IB
+---------------------
+
+.. image:: img/Converter/InterfaceBuilderScreenSnapz001.png
+
+Create an NSTextField
+---------------------
+
+.. image:: img/Converter/InterfaceBuilderScreenSnapz002.png
+
+Drag to the NSWindow
+--------------------
+
+.. image:: img/Converter/InterfaceBuilderScreenSnapz003.png
+
+Create the input NSTextFields
+-----------------------------
+
+.. image:: img/Converter/InterfaceBuilderScreenSnapz004.png
+
+Almost finished UI Layout
+-------------------------
+
+.. image:: img/Converter/InterfaceBuilderScreenSnapz005.png
+
+Align the labels
+----------------
+
+.. image:: img/Converter/InterfaceBuilderScreenSnapz006.png
+
+Use currency NSNumberFormatters
+-------------------------------
+
+.. image:: img/Converter/InterfaceBuilderScreenSnapz016.png
+
+Set up the Bindings
+-------------------
+
+.. image:: img/Converter/InterfaceBuilderScreenSnapz007.png
+
+To point to your delegate
+-------------------------
+
+.. image:: img/Converter/InterfaceBuilderScreenSnapz008.png
+
+Dollars binding...
+------------------
+
+.. image:: img/Converter/InterfaceBuilderScreenSnapz009.png
+
+Other Currency Binding...
+-------------------------
+
+.. image:: img/Converter/InterfaceBuilderScreenSnapz010.png
+
+Subclass NSObject
+-----------------
+
+.. image:: img/Converter/InterfaceBuilderScreenSnapz011.png
+
+To create your delegate class
+-----------------------------
+
+.. image:: img/Converter/InterfaceBuilderScreenSnapz012.png
+
+Instantiate it in your nib
+--------------------------
+
+.. image:: img/Converter/InterfaceBuilderScreenSnapz013.png
+
+Create a connection
+-------------------
+
+.. image:: img/Converter/InterfaceBuilderScreenSnapz014.png
+
+To the NSApplication
+--------------------
+
+.. image:: img/Converter/InterfaceBuilderScreenSnapz015.png
+
+ConverterAppDelegate Class
+--------------------------
+
+::
+
+    from Foundation import *
+    from AppKit import *
+    import objc
+
+    class ConverterAppDelegate(NSObject):
+        def init(self):
+            self = super(ConverterAppDelegate, self).init()
+            self.exchangeRate = 3
+            self.dollarsToConvert = 4
+            return self
+
+        def amountInOtherCurrency(self):
+            return self.dollarsToConvert * self.exchangeRate
+
+        def setAmountInOtherCurrency_(self, amt):
+            self.dollarsToConvert = amt / self.exchangeRate
+
+    ConverterAppDelegate.setKeys_triggerChangeNotificationsForDependentKey_(
+        [u'dollarsToConvert', u'exchangeRate'],
+        u'amountInOtherCurrency',
+    )
+
+Converter script
+----------------
+
+::
+
+    from PyObjCTools import AppHelper
+    import ConverterAppDelegate
+    if __name__ == '__main__':
+        AppHelper.runEventLoop()
+
+setup.py script
+---------------
+
+::
+
+    from distutils.core import setup
+    import py2app
+    setup(
+        app = ['Converter.py'],
+        data_files = ['MainMenu.nib'],
+    )
+
+Build and Run
+-------------
+
+::
+
+    % python setup.py py2app --alias
+    % open dist/Converter.app
+
+Finished Converter
+------------------
+
+.. image:: img/Converter/ConverterScreenSnapz001.png
+
+Changing Currency
+-----------------
+
+.. image:: img/Converter/ConverterScreenSnapz002.png
 
 Password Viewer
 ---------------
